@@ -1,5 +1,7 @@
 /composer.lock
 /resources/cache/*
-/resources/log/
+/resources/log/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
 /vendor/
 /web/assets/*
