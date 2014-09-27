@@ -8,8 +8,7 @@
 
 
 $app->match('/',"home.controller:indexAction")->bind("homepage");
-$app->match('/form',  "users.controller:registerAction")->bind('form');
-$app->match('/account',  "users.controller:registerAction")->bind('doctrine');
-$app->match('/logout', "users.controller:logoutAction")->bind('logout');
+$app->match('/demo',  "demo.controller:demoAction");
+
 
 return $app;

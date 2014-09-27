@@ -1,11 +1,49 @@
-Silex - Kitchen Sink Edition
+#Silex - psyched and pumped !
 ============================
 
-This project is a sample or a bootstrap silex application.
-You can use it for your next php application.
+This project is a sample for a bootstrap silex application.
+It's based on lyrixx's Silex Kitchen edition.
+For more informations, see the [**dedicated page**](http://lyrixx.github.com/Silex-Kitchen-Edition).
 
-For more informations, see the
-[**dedicated page**](http://lyrixx.github.com/Silex-Kitchen-Edition).
+## BASE PROJECT
 
-[![SensioLabsInsight](https://insight.sensiolabs.com/projects/7fccf04a-aa27-4412-831b-99ce86fb5df7/mini.png)](https://insight.sensiolabs.com/projects/7fccf04a-aa27-4412-831b-99ce86fb5df7)
-[![Build Status](https://secure.travis-ci.org/lyrixx/Silex-Kitchen-Edition.png?branch=master)](http://travis-ci.org/lyrixx/Silex-Kitchen-Edition)
+lyrixx project is a great way to start working on silex with a proper structure.
+It features
+- Directory structure
+- MVCish approach
+- Doctrine DBAL
+- Translation
+- Bootstrap
+- Boilerplate
+
+
+However i wasn't satisfied with some of the choices that where made in the project. So i made some changes :
+
+## CHANGES
+
+- Implemented a User management system : [**Simple User for Silex**](https://github.com/jasongrimes/silex-simpleuser).
+- Implemented a proper mvc folder structure in the the "src/" directory
+- Created controllers system as services [** See Silex services controllers **](http://silex.sensiolabs.org/doc/providers/service_controller.html).
+- Moved non specific elements to the folder "resources/"
+- Moved the twig templates to "src/"
+- Updated the layout using the SimpleUser version
+- Styled the css using the spacelab sheet from [** Bootswatch**](http://bootswatch.com)
+
+## INSTALLATION
+
+Create a project using composer
+    php composer.phar create-project -s dev enyosolutions/Silex-Boostrapped-pumped PATH/TO/YOUR/APP
+    cd PATH/TO/YOUR/APP
+
+
+## GETTING STARTED
+
+The app is ready to fire. just navigate to your site with your browser.
+
+You can then do the following :
+
+- Go to "resources/config" and edit your config files as you see fit
+- Create a controller in  "src/Controllers"
+- Register it in "resources/controllers.php"
+- Create your routes in "resources/routes.php"
+- Create a twig template in "src/views"

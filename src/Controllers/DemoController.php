@@ -21,33 +21,12 @@ use Symfony\Component\HttpFoundation\Response;
  *
  * @author Gunnar Lium <gunnar@aptoma.com>
  */
-class UserController extends DefaultController
+class DemoController extends DefaultController
 {
 
 
-    public function loginAction()
-    {
-        $form = $this->app['form.factory']->createBuilder('form')
-            ->add('username', 'text', array('label' => 'Username', 'data' =>
-                $this->app['session']->get('_security.last_username')))
-            ->add('password', 'password', array('label' => 'Password'))
-            ->getForm();
 
-
-        return $this->app['twig']->render('login.html.twig', array(
-            'form' => $form->createView(),
-            'error' => $this->app['security.last_error']($this->request),
-        ));
-    }
-
-    public function logoutAction()
-    {
-        $this->app['session']->clear();
-
-        return $this->app->redirect($this->app['url_generator']->generate('homepage'));
-    }
-
-    public function registerAction()
+    public function demoAction()
     {
 
         $builder = $this->app['form.factory']->createBuilder('form');
@@ -133,6 +112,6 @@ class UserController extends DefaultController
             }
         }
 
-        return $this->app['twig']->render('form.html.twig', array('form' => $form->createView()));
+        return $this->app['twig']->render('demo.html.twig', array('form' => $form->createView()));
     }
 }

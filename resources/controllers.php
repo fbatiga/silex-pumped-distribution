@@ -4,12 +4,10 @@
  */
 
 use App\Controllers;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints as Assert;
 
 
 
+$app['demo.controller'] = $app->share(function() use ($app) {return new Controllers\DemoController($app);});
 $app['home.controller'] = $app->share(function() use ($app) {return new Controllers\HomeController($app);});
-$app['users.controller'] = $app->share(function() use ($app) {return new Controllers\UserController($app);});
+

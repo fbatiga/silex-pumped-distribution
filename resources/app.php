@@ -43,14 +43,14 @@ $app->register(new TranslationServiceProvider());
 $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
 
-    $translator->addResource('yaml', __DIR__.'/../resources/locales/fr.yml', 'fr');
-    $translator->addResource('yaml', __DIR__.'/../resources/locales/en.yml', 'en');
+    $translator->addResource('yaml', __DIR__.'/locales/fr.yml', 'fr');
+    $translator->addResource('yaml', __DIR__.'/locales/en.yml', 'en');
 
     return $translator;
 }));
 
 $app->register(new MonologServiceProvider(), array(
-    'monolog.logfile' => __DIR__.'/../resources/log/app.log',
+    'monolog.logfile' => __DIR__.'/log/app.log',
     'monolog.name'    => 'app',
     'monolog.level'   => 300 // = Logger::WARNING
 ));

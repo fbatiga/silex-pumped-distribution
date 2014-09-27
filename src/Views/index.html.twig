@@ -6,7 +6,7 @@
     <h1>Hello</h1>
     {% if is_granted('ROLE_USER') %}
         Hello "{{ app.security.token.user.name }}".<br />
-        <a href="{{ path('logout') }}">{{ 'Logout'|trans }}</a>
+        <a href="/user/logout">{{ 'Logout'|trans }}</a>
     {% else %}
         Your a not logged. Please <a href="/user/login">{{ 'connect'|trans }}</a>
     {% endif %}
