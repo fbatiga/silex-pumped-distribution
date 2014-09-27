@@ -32,8 +32,8 @@ However i wasn't satisfied with some of the choices that where made in the proje
 ## INSTALLATION
 
 Create a project using composer
-    php composer.phar create-project -s dev enyosolutions/silex-pumped-distribution PATH/TO/YOUR/APP
-    cd PATH/TO/YOUR/APP
+        php composer.phar create-project -s dev enyosolutions/silex-pumped-distribution PATH/TO/YOUR/APP
+        cd PATH/TO/YOUR/APP
 
 
 ## GETTING STARTED
