@@ -1,5 +1,5 @@
 {
-    "name"        : "enyosolutions/Silex-pumped-distribution",
+    "name"        : "enyosolutions/silex-pumped-distribution",
     "type"        : "library",
     "description" : "A Silex bundled distribution. This project is a base for your silex applications.",
     "keywords"    : ["framework"],
