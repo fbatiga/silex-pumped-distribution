@@ -47,3 +47,6 @@ You can then do the following :
 - Register it in "resources/controllers.php"
 - Create your routes in "resources/routes.php"
 - Create a twig template in "src/views"
+
+
+You can now do everything you want. Add a redbeanphp to your vendors and you can start prototyping and building your app.
