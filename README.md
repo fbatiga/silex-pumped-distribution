@@ -2,12 +2,12 @@
 ============================
 
 This project is a sample for a bootstrap silex application.
-It's based on lyrixx's Silex Kitchen edition.
+It's based on **lyrixx's Silex Kitchen edition**.
 For more informations, see the [**dedicated page**](http://lyrixx.github.com/Silex-Kitchen-Edition).
 
 ## BASE PROJECT
 
-lyrixx project is a great way to start working on silex with a proper structure.
+**lyrixx project** is a great way to start working on silex with a proper structure.
 It features
 - Directory structure
 - MVCish approach
@@ -24,7 +24,7 @@ However i wasn't satisfied with some of the choices that where made in the proje
 - Implemented a User management system : [**Simple User for Silex**](https://github.com/jasongrimes/silex-simpleuser).
 - Implemented a proper mvc folder structure in the the "src/" directory
 - Created controllers system as services [** See Silex services controllers **](http://silex.sensiolabs.org/doc/providers/service_controller.html).
-- Moved non specific elements to the folder "resources/"
+- Moved non source code elements to the folder "resources/" (console, routing, services registering etc)
 - Moved the twig templates to "src/"
 - Updated the layout using the SimpleUser version
 - Styled the css using the spacelab sheet from [** Bootswatch**](http://bootswatch.com)
