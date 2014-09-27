@@ -21,13 +21,13 @@ However i wasn't satisfied with some of the choices that where made in the proje
 
 ## CHANGES
 
-- Implemented a User management system : [**Simple User for Silex**](https://github.com/jasongrimes/silex-simpleuser).
+- Implemented a User management system : [Simple User for Silex](https://github.com/jasongrimes/silex-simpleuser).
 - Implemented a proper mvc folder structure in the the "src/" directory
-- Created controllers system as services [** See Silex services controllers **](http://silex.sensiolabs.org/doc/providers/service_controller.html).
+- Created controllers system as services [See Silex services controllers](http://silex.sensiolabs.org/doc/providers/service_controller.html).
 - Moved non source code elements to the folder "resources/" (console, routing, services registering etc)
 - Moved the twig templates to "src/"
 - Updated the layout using the SimpleUser version
-- Styled the css using the spacelab sheet from [** Bootswatch**](http://bootswatch.com)
+- Styled the css using the spacelab sheet from [Bootswatch](http://bootswatch.com)
 
 ## INSTALLATION
 
