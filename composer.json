@@ -1,14 +1,14 @@
 {
-    "name"        : "enyosolutions/Silex-enyo-Edition",
+    "name"        : "enyosolutions/Silex-pumped-distribution",
     "type"        : "library",
-    "description" : "A Silex Edition. This project is a base for your silex applications.",
+    "description" : "A Silex bundled distribution. This project is a base for your silex applications.",
     "keywords"    : ["framework"],
     "homepage"    : "http://www.enyosolutions.com",
     "license"     : "MIT",
     "authors"     : [
         {
             "name"  : "Faouzane BATIGA",
-            "email" : "lyrixx@lyrixx.info"
+            "email" : "fb@enyosolutions.com"
         }
     ],
     "require": {
