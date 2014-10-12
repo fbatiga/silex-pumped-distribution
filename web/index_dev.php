@@ -6,7 +6,7 @@ Symfony\Component\Debug\Debug::enable();
 
 $app = new Silex\Application();
 
-require __DIR__.'/../resources/config/dev.php';
+require __DIR__.'/../resources/config/config_dev.php';
 require __DIR__ . '/../resources/app.php';
 
 require __DIR__ . '/../resources/controllers.php';

@@ -30,12 +30,20 @@
         "jasongrimes/silex-simpleuser": "~1.0",
         "twig/twig"             : "~1.10",
         "silex/web-profiler"    : "~1.0.1",
-        "twitter/bootstrap"     : "2.3.2"
+        "resty/resty": "@stable",
+        "raveren/kint": "v0.9",
+        "jasonlewis/expressive-date" : "~1.0.2"
     },
     "require-dev": {
         "symfony/browser-kit"   : "~2.3",
         "symfony/css-selector"  : "~2.3",
-        "symfony/dom-crawler"   : "~2.3"
+        "symfony/dom-crawler"   : "~2.3",
+        "filp/whoops"           :"~1.0"
+
+    },
+    "suggests": {
+        "jasonlewis/expressive-date" : "~1.0.2",
+        "nutwerk/doctrine-orm-provider": "1.0.*@dev"
     },
     "scripts": {
         "post-install-cmd": "Composer\\Script::install",

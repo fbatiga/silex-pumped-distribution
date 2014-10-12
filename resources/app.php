@@ -64,11 +64,22 @@ $app->register(new TwigServiceProvider(), array(
     'twig.path'           => array(__DIR__ . '/../src/Views')
 ));
 
+if($app['debug']) {
+    $app->register(new Whoops\Provider\Silex\WhoopsServiceProvider);
+}
+
 if ($app['debug'] && isset($app['cache.path'])) {
     $app->register(new ServiceControllerServiceProvider());
     $app->register(new WebProfilerServiceProvider(), array(
         'profiler.cache_dir' => $app['cache.path'].'/profiler',
     ));
+}
+
+if($app['debug'] && $app['whoops']) {
+    $app->register(new Whoops\Provider\Silex\WhoopsServiceProvider);
+
+    $handler = new Whoops\Handler\PrettyPageHandler;
+    $handler->setEditor('sublime');
 }
 
 if (isset($app['assetic.enabled']) && $app['assetic.enabled']) {

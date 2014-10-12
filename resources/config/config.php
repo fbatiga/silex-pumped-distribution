@@ -1,6 +1,14 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: faou
+ * Date: 28/09/2014
+ * Time: 14:31
+ * @decription : This is the base config file. All the cross platforms options goes here.
+ */
 
-require __DIR__.'/simple_user_options.php';
+define("DOCUMENT_ROOT", __DIR__."../../");
+define("WEB_ROOT", __DIR__."../../web/");
 
 // Local
 $app['locale'] = 'fr';
@@ -8,6 +16,9 @@ $app['session.default_locale'] = $app['locale'];
 $app['translator.messages'] = array(
     'fr' => __DIR__.'/../resources/locales/fr.yml',
 );
+
+//User class
+require __DIR__.'/simple_user_options.php';
 
 // Cache
 $app['cache.path'] = __DIR__ . '/../cache';
@@ -33,14 +44,6 @@ $app['assetic.input.path_to_js']        = array(
 );
 $app['assetic.output.path_to_js']       = 'js/scripts.js';
 
-// Doctrine (db)
-$app['db.options'] = array(
-    'driver'   => 'pdo_mysql',
-    'host'     => 'localhost',
-    'dbname'   => 'silex_kitchen',
-    'User'     => 'root',
-    'password' => '',
-);
 
 // User
 $app['security.users'] = array('username' => array('ROLE_USER', 'password'));
