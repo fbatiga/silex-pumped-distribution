@@ -14,6 +14,9 @@ use Silex\Provider\ValidatorServiceProvider;
 use Silex\Provider\WebProfilerServiceProvider;
 use SilexAssetic\AsseticServiceProvider;
 use Symfony\Component\Translation\Loader\YamlFileLoader;
+use Palma\Silex\Provider\DoctrineORMServiceProvider;
+
+
 
 
 
@@ -39,6 +42,14 @@ $app->register($simpleUserProvider);
 
 
 
+$app->register(new DoctrineORMServiceProvider(), array(
+    'doctrine_orm.entities_path'     => __DIR__.'../src/Models/Entities/',
+    'doctrine_orm.proxies_path'      => __DIR__.'../src/Models/Proxies',
+    'doctrine_orm.proxies_namespace' => 'App\Models\Proxies',
+    'doctrine_orm.connection_parameters' => $app['db.options']
+));
+
+
 $app->register(new TranslationServiceProvider());
 $app['translator'] = $app->share($app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
@@ -50,7 +61,7 @@ $app['translator'] = $app->share($app->extend('translator', function($translator
 }));
 
 $app->register(new MonologServiceProvider(), array(
-    'monolog.logfile' => __DIR__.'/log/app.log',
+    'monolog.logfile' => __DIR__.'/log/'.$app['ENVIRONMENT'].'app.log',
     'monolog.name'    => 'app',
     'monolog.level'   => 300 // = Logger::WARNING
 ));

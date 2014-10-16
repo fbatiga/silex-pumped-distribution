@@ -5,8 +5,8 @@ require_once __DIR__.'/vendor/autoload.php';
 
 $app = new Silex\Application();
 
-require __DIR__.'/resources/config/dev.php';
-require __DIR__ . '/resources/app.php';
+require __DIR__.'/resources/config/config_dev.php';
+require __DIR__ . '/resources/bootstrap.php';
 
 $console = require __DIR__ . '/resources/console.php';
 $console->run();

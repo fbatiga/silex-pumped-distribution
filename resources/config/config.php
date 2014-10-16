@@ -47,3 +47,22 @@ $app['assetic.output.path_to_js']       = 'js/scripts.js';
 
 // User
 $app['security.users'] = array('username' => array('ROLE_USER', 'password'));
+
+
+if (in_array(@$_SERVER['REMOTE_ADDR'], array(
+        '127.0.0.1',
+        '::1',
+        '192.168.1.213',
+    ))
+) {
+    $app['ENVIRONMENT'] = "DEV";
+}
+else if (in_array(@$_SERVER['REMOTE_ADDR'], array(
+
+    '84.14.104.77'))) {
+    $app['ENVIRONMENT'] = "TEST";
+}
+else {
+    $app['ENVIRONMENT'] = "PROD";
+}
+

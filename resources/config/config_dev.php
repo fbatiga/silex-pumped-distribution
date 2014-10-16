@@ -2,10 +2,11 @@
 
 $app['db.options'] = array(
     'driver'   => 'pdo_mysql',
-    'host'     => 'localhost',
+    'host'     => '127.0.0.1',
     'dbname'   => 'fly_dev',
     'user'     => 'root',
     'password' => 'toor',
+    'cahrset'  => 'utf8'
 );
 
 

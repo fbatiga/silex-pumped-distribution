@@ -1,16 +1,32 @@
 <?php
 
 use Doctrine\DBAL\DriverManager;
+use Doctrine\DBAL\Tools\Console\Helper\ConnectionHelper;
+use Doctrine\ORM\Tools\Console\ConsoleRunner;
+use Doctrine\ORM\Tools\Console\Helper\EntityManagerHelper;
 use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Helper\HelperSet;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 
+
+//set_time_limit(0);
 $console = new Application('Silex - Kitchen Edition', '0.1');
 
+$cli = true;
 $app->boot();
+
+
+$helperSet = new HelperSet(array(
+    'db' => new ConnectionHelper($app['doctrine_orm.em']->getConnection()),
+    'em' => new EntityManagerHelper($app['doctrine_orm.em'])
+));
+$console->setHelperSet($helperSet);
+ConsoleRunner::addCommands($console);
+
 
 $console
     ->register('assetic:dump')
@@ -26,8 +42,7 @@ $console
         }
         $dumper->dumpAssets();
         $output->writeln('<info>Dump finished</info>');
-    })
-;
+    });
 
 if (isset($app['cache.path'])) {
     $console
@@ -42,8 +57,24 @@ if (isset($app['cache.path'])) {
             $filesystem->remove($finder);
 
             $output->writeln(sprintf("%s <info>success</info>", 'cache:clear'));
-    });
+        });
 }
+
+
+$console
+    ->register('log:clear')
+    ->setDescription('Clears the logs')
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
+
+        $logDir = $app['log.path'];
+        $finder = Finder::create()->in(__DIR__ . "/log")->notName('.gitkeep');
+
+        $filesystem = new Filesystem();
+        $filesystem->remove($finder);
+
+        $output->writeln(sprintf("%s <info>success</info>", 'log:clear'));
+    });
+
 
 $console
     ->register('doctrine:schema:show')
@@ -52,10 +83,9 @@ $console
         $schema = require __DIR__ . '/db/schema.php';
 
         foreach ($schema->toSql($app['db']->getDatabasePlatform()) as $sql) {
-            $output->writeln($sql.';');
+            $output->writeln($sql . ';');
         }
-    })
-;
+    });
 
 $console
     ->register('doctrine:schema:load')
@@ -64,10 +94,9 @@ $console
         $schema = require __DIR__ . '/db/schema.php';
 
         foreach ($schema->toSql($app['db']->getDatabasePlatform()) as $sql) {
-            $app['db']->exec($sql.';');
+            $app['db']->exec($sql . ';');
         }
-    })
-;
+    });
 
 $console
     ->register('doctrine:database:drop')
@@ -91,8 +120,8 @@ for:
 <error>Be careful: All data in a given database will be lost when executing
 this command.</error>
 EOT
-        )
-        ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
+    )
+    ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
         $connection = $app['db'];
 
         $params = $connection->getParams();
@@ -127,8 +156,7 @@ EOT
 
             return 2;
         }
-    })
-;
+    });
 $console
     ->register('doctrine:database:create')
     ->setDescription('Creates the configured databases')
@@ -173,7 +201,7 @@ EOT
         $tmpConnection->close();
 
         return $error ? 1 : 0;
-    })
-;
+    });
+
 
 return $console;
