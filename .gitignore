@@ -2,6 +2,7 @@
 /resources/cache/*
 /resources/log/*
 !/resources/cache/.gitkeep
-/resources/log/.gitkeep
-/vendor/
+!/resources/log/.gitkeep
+/vendor/*
+!/vendor/palma
 /web/assets/*

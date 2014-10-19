@@ -46,7 +46,8 @@
     "suggests": {
         "jasonlewis/expressive-date" : "~1.0.2",
         "nutwerk/doctrine-orm-provider": "1.0.*@dev",
-        "palmasev/DoctrineORMServiceProvider" : "dev-master"
+        "palmasev/DoctrineORMServiceProvider" : "dev-master",
+        "gedmo/doctrine-extensions" : "~2.3.9"
     },
     "scripts": {
         "post-install-cmd": "Composer\\Script::install",
