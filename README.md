@@ -23,7 +23,8 @@ However i wasn't satisfied with some of the choices that where made in the proje
 
 - Implemented a User management system : [Simple User for Silex](https://github.com/jasongrimes/silex-simpleuser).
 - Implemented a proper mvc folder structure in the the "src/" directory
-- Created controllers system as services [See Silex services controllers](http://silex.sensiolabs.org/doc/providers/service_controller.html).
+- Added support for doctrine2 orm, it's a suggest package. The command line also support doctrine.
+- Created a controllers as services system [See Silex services controllers](http://silex.sensiolabs.org/doc/providers/service_controller.html).
 - Moved non source code elements to the folder "resources/" (console, routing, services registering etc)
 - Moved the twig templates to "src/"
 - Updated the layout using the SimpleUser version

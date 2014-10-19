@@ -20,12 +20,6 @@ $cli = true;
 $app->boot();
 
 
-$helperSet = new HelperSet(array(
-    'db' => new ConnectionHelper($app['doctrine_orm.em']->getConnection()),
-    'em' => new EntityManagerHelper($app['doctrine_orm.em'])
-));
-$console->setHelperSet($helperSet);
-ConsoleRunner::addCommands($console);
 
 
 $console
@@ -203,5 +197,13 @@ EOT
         return $error ? 1 : 0;
     });
 
+if (isset($app['doctrine_orm.em'])) {
+    $helperSet = new HelperSet(array(
+        'db' => new ConnectionHelper($app['doctrine_orm.em']->getConnection()),
+        'em' => new EntityManagerHelper($app['doctrine_orm.em'])
+    ));
+    $console->setHelperSet($helperSet);
+    ConsoleRunner::addCommands($console);
+}
 
 return $console;
